@@ -50,7 +50,7 @@ public class App extends Application {
 			grid.getChildren().addAll(nameLabel, inputName, pwdLabel, inputPwd, loginButton);
 			
 			Scene scene = new Scene(grid, 400, 400);
-			scene.getStylesheets().add("main/java/application/styles.css");
+			scene.getStylesheets().add("application/styles.css");
 			window.setScene(scene);
 			window.show();
 			
