@@ -1,6 +1,8 @@
 package application;
 	
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -31,6 +33,7 @@ public class App extends Application {
 			Label headingSceneMain = new Label("Welcome to your Tasks Manager board:");
 			Button btnAlert = new Button("Alert");
 			btnAlert.setOnAction(e -> new AlertBox().display("Warning", "This is an alert message!"));
+			
 			layoutMain.getChildren().addAll(headingSceneMain, btnAlert);
 			
 			primaryStage.setScene(sceneMain);
