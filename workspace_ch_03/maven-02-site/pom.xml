@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.psu.se411</groupId>
+  <artifactId>maven-02-site</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Tutorial about Maven Site Generation</name>
+  <description>This tutorial showcases an important Maven capability which is the capacity to generate a site that documents the project</description>
+  <url>https://sites.google.com/view/se411/home</url>
+  
+  <licenses>
+  	<license>
+  		<name>Apache License</name>
+  		<comments>This is an open-source project</comments>
+  	</license>
+  </licenses>
+  
+  <organization>
+  	<name>SE411-Tech</name>
+  	<url>https://github.com/skanderturki/se411</url>
+  </organization>
+  
+  <developers>
+  	<developer>
+  		<name>Salah Ahmed</name>
+  		<email>salah.ahmed@domain.com</email>
+  	</developer>
+  </developers>
+</project>

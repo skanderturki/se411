@@ -47,6 +47,7 @@ public class App extends Application {
 			
 			layout = new BorderPane();
 			layout.setTop(menuBar);
+
 			Scene scene = new Scene(layout, 640, 400);
 			window.setScene(scene);
 			window.show();

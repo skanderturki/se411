@@ -8,7 +8,7 @@ public class WildCards {
 		styleItems(cancelList);
 
 		List<Dialog> dialogList = new ArrayList();
-		styleItems(dialogList);
+		//styleItems(dialogList);   // Try to uncomment this
 	}
 
 	class Button{};

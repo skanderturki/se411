@@ -32,4 +32,10 @@ public class AlertBox {
 		window.showAndWait();
 	}
 
+	Label headingSceneMain = new Label("Welcome to your Tasks Manager board:");
+				Button btnAlert = new Button("Alert");
+				btnAlert.setOnAction(e -> new AlertBox().display("Warning", "This is an alert message!"));
+				
+				layoutMain.getChildren().addAll(headingSceneMain, btnAlert);
+
 }
