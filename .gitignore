@@ -1,5 +1,5 @@
 eclipse/
 
 .metadata/
-
+*.class
 bin/
