@@ -6,7 +6,7 @@
   <name>Tutorial about Maven Site Generation</name>
   <description>This tutorial showcases an important Maven capability which is the capacity to generate a site that documents the project</description>
   <url>https://sites.google.com/view/se411/home</url>
-  
+
   <licenses>
   	<license>
   		<name>Apache License</name>
