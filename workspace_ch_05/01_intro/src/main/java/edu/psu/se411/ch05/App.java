@@ -3,7 +3,7 @@ package edu.psu.se411.ch05;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import edu.psu.se411.ch05.threads.AdditionThread;
+import edu.psu.se411.ch05.threads.AdditionTask;
 
 
 public class App {
@@ -13,8 +13,8 @@ public class App {
 	public static void main(String[] args) {
 		logger.info("Application is starting...");
 
-		AdditionThread addThreadA = new AdditionThread("Thread_A", 20);		
-		AdditionThread addThreadB = new AdditionThread("Thread_B", 20);
+		AdditionTask addThreadA = new AdditionTask("Task_A", 20);		
+		AdditionTask addThreadB = new AdditionTask("Task_B", 20);
 		
 		Thread thread_A = new Thread(addThreadA);
 		thread_A.setPriority(10);

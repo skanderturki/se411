@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import edu.psu.se411.ch05.threads.CountingThread;
+import edu.psu.se411.ch05.threads.CountingTask;
 
 
 public class App {
@@ -19,8 +19,8 @@ public class App {
 		ExecutorService executor = Executors.newFixedThreadPool(3);
 
 	    for(int i = 0; i < 20; i++) {
-			CountingThread countingThread = new CountingThread("Thread_" + i, 20, 20);		
-			Thread thread = new Thread(countingThread);
+			CountingTask countingTask = new CountingTask("Task_" + i, 20, 20);		
+			Thread thread = new Thread(countingTask);
 			
 			// Submit runnable tasks to the executor
 			executor.execute(thread);

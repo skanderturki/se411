@@ -1,26 +1,24 @@
 package edu.psu.se411.ch05.threads;
 
-public class AdditionThread implements Runnable {
+public class AdditionTask implements Runnable {
 	
 	private int counter;
-	private String threadId;
-	private int frequency;
+	private String taskId;
 	
-	public AdditionThread(String id_p, int frequency_p) {
-		this.frequency = frequency_p;
-		this.threadId = id_p;
+	public AdditionTask(String id_p) {
+		this.taskId = id_p;
 	}
 
 	@Override
 	public void run() {
-		Thread threadC = new Thread(new CountingThread(this.threadId + "_#_thread_C", 10));
+		Thread threadC = new Thread(new CountingTask(this.taskId + "_#_task_C", 10));
 		threadC.start();
 		while(counter < 10) {
 			try {
 				threadC.join(); // without waiting for thread C, the outputs would be interleaved
 				// but with the join, this thread will wait until threadC finishes before proceeding
 				counter++;
-				System.out.printf("Thread %s was Added to count %d%n", getThreadId(), getCounter());
+				System.out.printf("Task %s Added 1 and now count is %d%n", getTaskId(), getCounter());
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -32,7 +30,7 @@ public class AdditionThread implements Runnable {
 		return counter;
 	}
 	
-	public String getThreadId() {
-		return this.threadId;
+	public String getTaskId() {
+		return this.taskId;
 	}
 }

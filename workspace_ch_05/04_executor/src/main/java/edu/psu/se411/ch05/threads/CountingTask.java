@@ -1,14 +1,14 @@
 package edu.psu.se411.ch05.threads;
 
-public class CountingThread implements Runnable {
+public class CountingTask implements Runnable {
 	
 	private int count;
-	private String threadId;
+	private String taskId;
 	private int frequency;
 	
-	public CountingThread(String id_p, int count_p, int frequency_p) {
+	public CountingTask(String id_p, int count_p, int frequency_p) {
 		this.count = count_p;
-		this.threadId = id_p;
+		this.taskId = id_p;
 		this.frequency = frequency_p;
 	}
 
@@ -18,7 +18,7 @@ public class CountingThread implements Runnable {
 			while(count > 0) {
 				count--;
 				Thread.sleep(1000 / this.frequency);
-				System.out.printf("Thread %s was Added to count %d%n", getThreadId(), getCount());
+				System.out.printf("Task %s retrieved 1 and now count is %d%n", getTaskId(), getCount());
 			}
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -30,7 +30,7 @@ public class CountingThread implements Runnable {
 		return count;
 	}
 	
-	public String getThreadId() {
-		return this.threadId;
+	public String getTaskId() {
+		return this.taskId;
 	}
 }
