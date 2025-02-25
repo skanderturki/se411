@@ -2,7 +2,7 @@ package edu.psu.se411.ch05.threads;
 
 public class AdditionThread implements Runnable {
 	
-	private int counter;
+	private int counter = 1;
 	private String threadId;
 	private int frequency;
 	
@@ -13,20 +13,18 @@ public class AdditionThread implements Runnable {
 
 	@Override
 	public void run() {
-		Thread threadC = new Thread(new AdditionThread(this.threadId + "_#_thread_C", frequency));
-		threadC.start();
-		while(true) {
-			counter++;
-			System.out.printf("Thread %s was Added to count %d%n", getThreadId(), getCounter());
-			
+		while(counter < 200) {
 			try {
+				counter++;
+				System.out.printf("Thread %s was Added to count %d%n", getThreadId(), getCounter());
+				if(counter  == 50) Thread.yield();
 				Thread.sleep(1000 / frequency);
-				if(counter == 50) threadC.join();
-			} catch (InterruptedException e) {
+		    } catch (InterruptedException e) {
 				System.out.printf("Thread %s was interreupted at count %d%n", getThreadId(), getCounter());
 			}
+
 		}
-		
+
 	}
 
 	public int getCounter() {
