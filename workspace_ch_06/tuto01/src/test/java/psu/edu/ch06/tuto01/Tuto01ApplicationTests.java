@@ -1,10 +1,10 @@
-package edu.psu.firstest;
+package psu.edu.ch06.tuto01;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FirstestApplicationTests {
+class Tuto01ApplicationTests {
 
 	@Test
 	void contextLoads() {

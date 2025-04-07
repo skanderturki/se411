@@ -19,7 +19,7 @@ public class App {
 		ExecutorService executor = Executors.newFixedThreadPool(3);
 
 	    for(int i = 0; i < 20; i++) {
-			CountingTask countingTask = new CountingTask("Task_" + i, 20, 20);		
+			CountingTask countingTask = new CountingTask("Task_" + i, 10, 20);		
 			Thread thread = new Thread(countingTask);
 			
 			// Submit runnable tasks to the executor

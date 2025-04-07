@@ -17,7 +17,7 @@ public class App {
 	    ExecutorService executor = Executors.newCachedThreadPool();
 
 	    // Create and launch 100 threads
-	    for (int i = 0; i < 100; i++) {
+	    for (int i = 0; i < 200; i++) {
 	      executor.execute(new AddAPennyTask());
 	    }
 
@@ -46,6 +46,7 @@ public class App {
 	    }
 
 	    public void deposit(int amount) {
+	      System.out.println("Depositing...");
 	      int newBalance = balance + amount;
 
 	      // This delay is deliberately added to magnify the
