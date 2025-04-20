@@ -45,7 +45,7 @@ public class App {
 	      return balance;
 	    }
 
-	    public void deposit(int amount) {
+	    public synchronized void deposit(int amount) {
 	      System.out.println("Depositing...");
 	      int newBalance = balance + amount;
 

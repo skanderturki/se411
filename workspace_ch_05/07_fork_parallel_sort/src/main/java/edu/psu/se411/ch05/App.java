@@ -57,10 +57,12 @@ public class App {
         System.arraycopy(list, list.length / 2, 
           secondHalf, 0, secondHalfLength);
 
-        // Recursively sort the two halves
+        // Recursively sort the two halves, 
+        // The invoke() method forks the task and waits for the result, and doesn’t need any manual joining
         invokeAll(new SortTask(firstHalf), 
           new SortTask(secondHalf));
 
+        
         // Merge firstHalf with secondHalf into list
         MergeSort.merge(firstHalf, secondHalf, list);
       }

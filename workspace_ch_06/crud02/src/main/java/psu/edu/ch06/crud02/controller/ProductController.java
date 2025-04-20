@@ -1,4 +1,4 @@
-package psu.edu.ch06.tuto01.controller;
+package psu.edu.ch06.crud02.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -10,16 +10,18 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import psu.edu.ch06.tuto01.model.Product;
-import psu.edu.ch06.tuto01.model.ProductRepository;
+import psu.edu.ch06.crud02.model.Product;
+import psu.edu.ch06.crud02.model.ProductRepository;
 
 @RestController
 @RequestMapping("/v1/products")
@@ -68,6 +70,30 @@ public class ProductController {
 	                   pageable.getPageSize(),
 	                   pageable.getSortOr(Sort.by(Sort.Direction.DESC, "price"))));
 	   return ResponseEntity.ok(page.getContent());
+	}
+	
+	
+	@PutMapping("/{requestedId}")
+	private ResponseEntity<Void> putProduct(@PathVariable Integer requestedId, @RequestBody Product productUpdate) {
+		Optional<Product> product = productRepository.findById(requestedId);
+		if (product.isPresent()) {
+			Product updatedProduct = new Product(product.get().id(), productUpdate.name(), productUpdate.description(), productUpdate.price());
+			productRepository.save(updatedProduct);
+	    } else {
+	    	return ResponseEntity.notFound().build();
+	    }
+	    return ResponseEntity.noContent().build();
+	}
+	
+	@DeleteMapping("/{requestedId}")
+	private ResponseEntity<Void> deleteProduct(@PathVariable Integer requestedId) {
+		Optional<Product> product = productRepository.findById(requestedId);
+		if (product.isPresent()) {
+			productRepository.delete(product.get());
+	    } else {
+	    	return ResponseEntity.notFound().build();
+	    }
+	    return ResponseEntity.noContent().build();
 	}
 	
 }
