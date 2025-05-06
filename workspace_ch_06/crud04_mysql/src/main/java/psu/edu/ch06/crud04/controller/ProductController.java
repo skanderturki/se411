@@ -1,4 +1,4 @@
-package psu.edu.ch06.crud02.controller;
+package psu.edu.ch06.crud04.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -8,7 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import psu.edu.ch06.crud02.model.Product;
-import psu.edu.ch06.crud02.model.ProductRepository;
+import psu.edu.ch06.crud04.model.Product;
+import psu.edu.ch06.crud04.model.ProductRepository;
 
 @RestController
 @RequestMapping("/v1/products")
@@ -57,21 +56,21 @@ public class ProductController {
 		return ResponseEntity.created(locationOfNewProduct).build();
 	}
 	
-//	@GetMapping()
-//	private ResponseEntity<Iterable<Product>> findAll() {
-//	   return ResponseEntity.ok(productRepository.findAll());
-//	}
-	
 	@GetMapping
-	private ResponseEntity<List<Product>> findAll(Pageable pageable) {
-	   Page<Product> page = productRepository.findAll(
-	           PageRequest.of(
-	                   pageable.getPageNumber(),
-	                   pageable.getPageSize(),
-	                   pageable.getSortOr(Sort.by(Sort.Direction.DESC, "price"))));
-	   return ResponseEntity.ok(page.getContent());
+	private ResponseEntity<Iterable<Product>> findAll() {
+	   return ResponseEntity.ok(productRepository.findAll());
 	}
 	
+//	@GetMapping
+//	private ResponseEntity<List<Product>> findAll(Pageable pageable) {
+//	   Page<Product> page = productRepository.findAll(
+//	           PageRequest.of(
+//	                   pageable.getPageNumber(),
+//	                   pageable.getPageSize(),
+//	                   pageable.getSortOr(Sort.by(Sort.Direction.DESC, "price"))));
+//	   return ResponseEntity.ok(page.getContent());
+//	}
+//	
 	@PutMapping("/{requestedId}")
 	private ResponseEntity<Void> putProduct(@PathVariable Integer requestedId, @RequestBody Product productUpdate) {
 		Optional<Product> product = productRepository.findById(requestedId);
