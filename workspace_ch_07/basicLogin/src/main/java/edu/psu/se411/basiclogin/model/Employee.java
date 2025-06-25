@@ -1,7 +1,9 @@
 package edu.psu.se411.basiclogin.model;
 
+import org.springframework.data.annotation.Id;
+
 public record Employee(
-		Integer id,
+		@Id Integer id,
 		String name,
 		String lastname) {
 

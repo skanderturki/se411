@@ -17,8 +17,8 @@ public class EmployeeController {
 
 	private List<Employee> employees = new ArrayList<>(List.of(
 			new Employee(5, "Salah", "Obeid"),
-			new Employee(5, "Omar", "Abed"),
-			new Employee(5, "Ahmed", "Qurashi")));
+			new Employee(6, "Omar", "Abed"),
+			new Employee(7, "Ahmed", "Qurashi")));
 
 	@GetMapping()
 	public List<Employee> getEmployees() {
