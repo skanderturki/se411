@@ -19,7 +19,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration // tell Spring this is a configuration class (Spring will scan this class for beans)
-@EnableWebSecurity // replaces the default filter chain by the one configured here
+@EnableWebSecurity // replaces the default filter chain by the one configured here (Spring will scan this class for beans)
 public class SecurityConfig {
 
 	@Autowired
