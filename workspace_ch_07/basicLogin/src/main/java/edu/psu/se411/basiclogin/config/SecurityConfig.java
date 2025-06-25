@@ -33,7 +33,7 @@ public class SecurityConfig {
 		return provider;
 	}
 
-	@Bean
+	@Bean // Spring will scan this method for beans
 	public SecurityFilterChain securityFilterChain(HttpSecurity httpsec) throws Exception {
 		httpsec.csrf(customizer -> customizer.disable());
 		httpsec.authorizeHttpRequests(request -> request.anyRequest().authenticated());
