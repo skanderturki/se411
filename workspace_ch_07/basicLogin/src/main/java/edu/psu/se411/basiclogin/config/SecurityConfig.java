@@ -18,7 +18,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration // tell Spring this is a configuration class
+@Configuration // tell Spring this is a configuration class (Spring will scan this class for beans)
 @EnableWebSecurity // replaces the default filter chain by the one configured here
 public class SecurityConfig {
 
