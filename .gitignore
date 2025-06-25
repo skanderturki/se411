@@ -3,3 +3,5 @@ eclipse/
 .metadata/
 *.class
 bin/
+*.zip
+*.rar
